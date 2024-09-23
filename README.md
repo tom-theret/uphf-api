@@ -25,25 +25,27 @@ yarn add uphf-api
 ### Authentification with credentials
 
 ```javascript
-conts UPHF = require('uphf-api');
+const UPHF = require('uphf-api');
 
-async function main() {
-    let client = UPHF.authWithCredentials({
-        username: 'username',
-        password: 'password'
+async function main(username, password) {
+    let client = await UPHF.authWithCredentials({
+        username: username,
+        password: password
     });
 
     console.log(client);
 }
 
-main();
+main('username', 'password');
 ```
+
+You can view other examples in the [examples](https://github.com/tom-theret/uphf-api/examples) folder.
 
 ## ✅ Features
 
 - [x] 🔐 Connection
   - [x] With credentials
-  - [ ] With refresh token
+  - [x] With refresh token
 
 - [x] 📰 Actualities
 - [x] 📒 Contacts
@@ -75,3 +77,7 @@ Please read [CONTRIBUTING.md](https://github.com/tom-theret/uphf-api/CONTRIBUTIN
 
 - [UPHF (Université Polytechnique Haut-de-France)](https://www.uphf.fr/) for the API and account.
 - [Raphaël (raphckrman)](https://github.com/raphckrman) for the structure of the library.
+
+## 📧 Contact
+
+If you have any questions, feel free to contact me at [tom.theret@uphf.fr](mailto:tom.theret@uphf.fr).
