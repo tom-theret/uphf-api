@@ -1,7 +1,7 @@
 export interface AuthBody {
-    username: string;
-    password: string;
-    refreshToken?: string;
+    username?: string;
+    password?: string;
+    refreshAuthToken?: string;
 }
 
 export interface AuthResult {
@@ -20,7 +20,5 @@ export interface AuthResult {
 }
 
 export interface AuthFlowData {
-    refreshToken: string | null;
-    username: string;
-    password: string;
+    refreshAuthToken: string;
 }
