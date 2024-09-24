@@ -20,32 +20,17 @@ export default class UPHF {
 
     /** This method is used to refresh the token if it's expired
      * (5 minutes)
-     *  @param username
-     *  @param password
-     *  @param refreshToken - If you have a refresh token we use it to refresh the token but no refresh token is returned
+     *  @param refreshAuthToken
      *  @returns  - true - if the token is refreshed
      */
     private async refreshToken(): Promise<boolean> {
-        if (!this.loginData.refreshToken || this.loginData.refreshToken === "") {
-            await authWithCredentials({
-                username: this.loginData.username,
-                password: this.loginData.password
-            }).then((data) => {
-                this.authToken = data.authToken;
-                this.tokenExpires = Date.now() + 55 * 60 * 1000;
-            });
-            return true;
-        } else {
-            await authWithRefreshToken({
-                username: this.loginData.username,
-                password: this.loginData.password,
-                refreshToken: this.loginData.refreshToken
-            }).then((data)=> {
-                this.authToken = data.authToken;
-                this.tokenExpires = Date.now() + 55 * 60 * 1000;
-            });
-            return true;
-        }
+        await authWithRefreshToken({
+            refreshAuthToken: this.loginData.refreshAuthToken,
+        }).then((data)=> {
+            this.authToken = data.authToken;
+            this.tokenExpires = Date.now() + 55 * 60 * 1000;
+        });
+        return true;
     }
 
     /** This method is used to get deferents points in the map
