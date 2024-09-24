@@ -1,6 +1,6 @@
 export * from "./authenticate";
 
-export * from "./api/contactsGet";
+export * from "./api/contactsPost";
 export * from "./api/featuresPost";
 export * from "./api/importantNewsPost";
 export * from "./api/mapGet";

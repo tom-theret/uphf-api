@@ -2,7 +2,7 @@ import { ContactsBody, ContactsResponse } from "../interfaces/Contacts";
 import { CONTACTS } from "../utils/endpoints";
 import { UPHFFetcher } from "../utils/fetcher";
 
-export const contactsGet = async (type: string, value: string, authToken: string): Promise<ContactsResponse> => {
+export const contactsPost = async (type: string, value: string, authToken: string): Promise<ContactsResponse> => {
     const response = await UPHFFetcher(CONTACTS(), {
         method: "POST",
         headers: {

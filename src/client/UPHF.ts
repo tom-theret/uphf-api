@@ -1,4 +1,4 @@
-import { contactsGet } from "../api/contactsGet";
+import { contactsPost } from "../api/contactsPost";
 import { featuresPost } from "../api/featuresPost";
 import { importantNewsPost } from "../api/importantNewsPost";
 import { mapCampusGet, mapCategoriesGet, mapPointsGet } from "../api/mapGet";
@@ -104,7 +104,7 @@ export default class UPHF {
         if(Date.now() > this.tokenExpires){
             await this.refreshToken();
         }
-        return await contactsGet(type, value, this.authToken);
+        return await contactsPost(type, value, this.authToken);
     }
 
     /** This method is used to get the important news from the university
