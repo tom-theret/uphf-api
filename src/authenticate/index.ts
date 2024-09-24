@@ -3,8 +3,8 @@ import { AuthBody, AuthFlowData, AuthResult } from "../interfaces/Auth";
 import { AUTH_WITH_CREDENTIALS, AUTH_WITH_REFRESH_TOKEN, KEEP_AUTH_WITH_CREDENTIALS } from "../utils/endpoints";
 import { UPHFFetcher } from "../utils/fetcher";
 
-export const authWithCredentials = async (credentials: AuthBody, keepLoggedIn = true): Promise<UPHF> => {
-    const response = await UPHFFetcher(keepLoggedIn? KEEP_AUTH_WITH_CREDENTIALS() : AUTH_WITH_CREDENTIALS(), {
+export const authWithCredentials = async (credentials: AuthBody): Promise<UPHF> => {
+    const response = await UPHFFetcher(KEEP_AUTH_WITH_CREDENTIALS(), {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -15,9 +15,7 @@ export const authWithCredentials = async (credentials: AuthBody, keepLoggedIn = 
     const raw = await response.json() as AuthResult;
 
     return new UPHF(raw.authToken, {
-        refreshToken: (keepLoggedIn? raw.refreshAuthToken : null),
-        username: credentials.username,
-        password: credentials.password,
+        refreshAuthToken: raw.refreshAuthToken,
     } as AuthFlowData);
 };
 
@@ -26,15 +24,13 @@ export const authWithRefreshToken = async (credentials: AuthBody): Promise<UPHF>
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${credentials.refreshToken}`
+            "Authorization": `Bearer ${credentials.refreshAuthToken}`
         },
     });
     
     const raw = await response.json() as AuthResult;
 
     return new UPHF(raw.authToken, {
-        refreshToken: null,
-        username: credentials.username,
-        password: credentials.password,
+        refreshAuthToken: credentials.refreshAuthToken,
     } as AuthFlowData);
 }
