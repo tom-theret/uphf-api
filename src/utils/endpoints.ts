@@ -3,7 +3,7 @@ export const APPMOB_BASE = () => "https://appmob.uphf.fr/backend";
 
 /* Authentification */
 export const KEEP_AUTH_WITH_CREDENTIALS = () => `${APPMOB_BASE()}/keep-auth/auth`;
-export const AUTH_WITH_CREDENTIALS = () => `${APPMOB_BASE()}/auth`;
+export const AUTH_WITH_CREDENTIALS = () => `${APPMOB_BASE()}/auth`; // Only here for documentation. PLEASE USE KEEP_AUTH_WITH_CREDENTIALS
 export const AUTH_WITH_REFRESH_TOKEN = () => `${APPMOB_BASE()}/keep-auth/auth`;
 
 /* Communication & Calendars */
