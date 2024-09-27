@@ -1,8 +1,9 @@
+import { Schedule } from "../class/Schedule";
 import { ScheduleBody, ScheduleResponse } from "../interfaces/Schedule";
 import { SCHEDULE } from "../utils/endpoints";
 import { UPHFFetcher } from "../utils/fetcher";
 
-export const schedulePost = async (authToken: string, startDate: string, endDate: string): Promise<ScheduleResponse> => {
+export const schedulePost = async (authToken: string, startDate: string, endDate: string): Promise<Schedule> => {
     const response = await UPHFFetcher(SCHEDULE(), {
         method: "POST",
         headers: {
@@ -15,5 +16,12 @@ export const schedulePost = async (authToken: string, startDate: string, endDate
             asUser: null
         } as ScheduleBody)
     });
-    return await response.json() as ScheduleResponse;
+
+    const raw = (await response.json()) as ScheduleResponse;
+    const result = new Schedule(
+        raw.messages,
+        raw.plannings
+    );
+
+    return result ? result : new Schedule([], []);
 }
