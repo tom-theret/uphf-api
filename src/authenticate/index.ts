@@ -15,8 +15,18 @@ export const authWithCredentials = async (credentials: AuthBody): Promise<UPHF> 
     const raw = await response.json() as AuthResult;
 
     return new UPHF(raw.authToken, {
+        birthDate: raw.birthDate,
+        displayName: raw.displayName,
+        email: raw.email,
+        firstname: raw.firstname,
+        ine: raw.ine,
+        name: raw.name,
+        roles: raw.roles,
+        uid: raw.uid,
+        staffNumbers: raw.staffNumbers,
+        studentNumber: raw.studentNumber,
         refreshAuthToken: raw.refreshAuthToken,
-    } as AuthFlowData);
+    } as AuthResult);
 };
 
 export const authWithRefreshToken = async (credentials: AuthBody): Promise<UPHF> => {
@@ -31,6 +41,16 @@ export const authWithRefreshToken = async (credentials: AuthBody): Promise<UPHF>
     const raw = await response.json() as AuthResult;
 
     return new UPHF(raw.authToken, {
+        birthDate: raw.birthDate,
+        displayName: raw.displayName,
+        email: raw.email,
+        firstname: raw.firstname,
+        ine: raw.ine,
+        name: raw.name,
+        roles: raw.roles,
+        uid: raw.uid,
+        staffNumbers: raw.staffNumbers,
+        studentNumber: raw.studentNumber,
         refreshAuthToken: credentials.refreshAuthToken,
-    } as AuthFlowData);
+    } as AuthResult);
 }
