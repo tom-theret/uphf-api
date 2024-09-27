@@ -1,15 +1,15 @@
 export interface ZimbraBody {
-    authToken: string;
+  authToken: string;
 }
 
 export interface ZimbraResponse {
-    unreadMails: number;
-    events: Event[];
+  unreadMails: number;
+  events: Event[];
 }
 
 interface Event {
-    label: string;
-    startDateTime: string;
-    endDateTime: string;
-    location: string;
+  label: string;
+  startDateTime: string;
+  endDateTime: string;
+  location: string;
 }

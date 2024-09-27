@@ -1,4 +1,4 @@
 export interface SSOBody {
-    service: string;
-    authToken: string;
+  service: string;
+  authToken: string;
 }

@@ -1,5 +1,5 @@
 export interface NotificationsBody {
-    authToken: string;
-    offset: number;
-    length: number;
+  authToken: string;
+  offset: number;
+  length: number;
 }
