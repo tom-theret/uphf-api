@@ -1,6 +1,6 @@
 {
   "name": "uphf-api",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A simple wrapper to interact with the internal UPHF (Université Polytechnique Haut-de-France) API",
   "repository": "github:tom-theret/uphf-api",
   "main": "./dist/index.js",
