@@ -23,8 +23,9 @@ import { AuthFlowData, AuthResult } from "../interfaces/Auth";
 
 export default class UPHF {
   private tokenExpires: number;
-  constructor(public authToken: string, public loginData: AuthResult) {
+  constructor(public authToken: string, public refreshAuthToken: string, public loginData: AuthResult) {
     this.authToken = authToken;
+    this.refreshAuthToken = refreshAuthToken;
     this.loginData.birthDate = loginData.birthDate;
     this.loginData.displayName = loginData.displayName;
     this.loginData.email = loginData.email;
@@ -35,7 +36,6 @@ export default class UPHF {
     this.loginData.uid = loginData.uid;
     this.loginData.staffNumbers = loginData.staffNumbers;
     this.loginData.studentNumber = loginData.studentNumber;
-    this.loginData.refreshAuthToken = loginData.refreshAuthToken;
     this.tokenExpires = Date.now() + 5 * 60 * 1000;
   }
 

@@ -16,7 +16,7 @@ export interface AuthResult {
   birthDate: string;
   uid: string;
   roles: string[];
-  refreshAuthToken?: string;
+  refreshAuthToken: string | "";
 }
 
 export interface AuthFlowData {
