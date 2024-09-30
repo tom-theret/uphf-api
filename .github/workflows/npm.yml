@@ -23,9 +23,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run npx
-        run: npx tsc --project /home/runner/work/uphf-api/uphf-api/tsconfig.json
-
       - name: Build
         run: npm run build
 
