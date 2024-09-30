@@ -1,4 +1,4 @@
-import { AuthResponse } from "uphf-api/dist/models/Auth";
+import { AuthResponse } from "../models/Auth";
 import { UPHF } from "..";
 import type { RefreshBody } from "../models/Auth";
 import { KEEP_AUTH_WITH_REFRESH_TOKEN } from "../utils/Endpoints";
