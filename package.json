@@ -1,8 +1,8 @@
 {
   "name": "uphf-api",
-  "version": "1.2.1",
   "description": "A simple wrapper to interact with the internal UPHF (Université Polytechnique Haut-de-France) API",
   "repository": "github:tom-theret/uphf-api",
+  "version": "2.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -14,18 +14,32 @@
     }
   },
   "scripts": {
-    "build": "npm install && node ./scripts/build && gen-esm-wrapper dist/index.js dist/index.mjs"
+    "build": "npm install && node ./scripts/build && gen-esm-wrapper dist/index.js dist/index.mjs",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
-  "files": [
-    "dist"
+  "keywords": [
+    "api",
+    "uphf",
+    "university",
+    "wrapper"
   ],
-  "author": "Tom Theret <tom.theret@uphf.fr> (https://github.com/tom-theret)",
+  "engines": {
+    "node": ">=18"
+  },
+  "author": {
+    "name": "Tom Theret",
+    "email": "tom.theret@uphf.fr",
+    "url": "https://github.com/tom-theret"
+  },
   "license": "GPL-3.0-only",
   "devDependencies": {
-    "@types/node": "^22.5.5",
+    "@eslint/js": "^9.11.1",
+    "@stylistic/eslint-plugin-ts": "^2.8.0",
+    "eslint": "^9.11.1",
     "gen-esm-wrapper": "^1.1.3",
-    "ts-node": "^10.9.2",
-    "tslib": "^2.7.0",
-    "typescript": "^5.6.2"
+    "globals": "^15.9.0",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0"
   }
 }
