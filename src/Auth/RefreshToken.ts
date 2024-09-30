@@ -1,8 +1,8 @@
 import { AuthResponse } from "../models/Auth";
 import { UPHF } from "..";
 import type { RefreshBody } from "../models/Auth";
-import { KEEP_AUTH_WITH_REFRESH_TOKEN } from "../utils/Endpoints-1";
-import { UPHFFetcher } from "../utils/Fetcher-1";
+import { KEEP_AUTH_WITH_REFRESH_TOKEN } from "../utils/Endpoints";
+import { UPHFFetcher } from "../utils/Fetcher";
 
 export const authWithRefreshToken = async (refreshAuthToken: RefreshBody): Promise<UPHF> => {
   const response = await UPHFFetcher(KEEP_AUTH_WITH_REFRESH_TOKEN(), {

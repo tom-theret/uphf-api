@@ -1,7 +1,7 @@
 import { UPHF } from "..";
 import type { AuthResponse, CredentialsBody } from "../models/Auth";
-import { KEEP_AUTH_WITH_CREDENTIALS } from "../utils/Endpoints-1";
-import { UPHFFetcher } from "../utils/Fetcher-1";
+import { KEEP_AUTH_WITH_CREDENTIALS } from "../utils/Endpoints";
+import { UPHFFetcher } from "../utils/Fetcher";
 
 export const authWithCredentials = async (credentials: CredentialsBody): Promise<UPHF> => {
   const response = await UPHFFetcher(KEEP_AUTH_WITH_CREDENTIALS(), {

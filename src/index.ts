@@ -11,8 +11,8 @@ import type { RestaurantMenuResponse, RestaurantsResponse } from "./models/Data/
 import type { ScheduleBody, ScheduleResponse } from "./models/Data/Schedules";
 import type { UsefulInformationsResponse } from "./models/Data/Useful";
 import type { ZimbraResponse } from "./models/Data/Zimbra";
-import { CONTACTS, FEATURES, IMPORATANT_NEWS, KEEP_AUTH_WITH_REFRESH_TOKEN, MAIL_CALENDAR, MAP, MAP_CAMPUS, MAP_CATEGORIES, RESTAURANT_MENU, RESTAURANTS, RSS, SCHEDULE, SSO_SERVICE_TOKEN, USEFUL_INFORMATION } from "./utils/Endpoints-1";
-import { UPHFFetcher } from "./utils/Fetcher-1";
+import { CONTACTS, FEATURES, IMPORATANT_NEWS, KEEP_AUTH_WITH_REFRESH_TOKEN, MAIL_CALENDAR, MAP, MAP_CAMPUS, MAP_CATEGORIES, RESTAURANT_MENU, RESTAURANTS, RSS, SCHEDULE, SSO_SERVICE_TOKEN, USEFUL_INFORMATION } from "./utils/Endpoints";
+import { UPHFFetcher } from "./utils/Fetcher";
 
 export * from "./Auth";
 
