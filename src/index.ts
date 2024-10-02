@@ -1,21 +1,11 @@
+/** Import for the UPHF class. */
 import { authWithRefreshToken } from "./Auth";
 import type { AuthResponse, SSOBody, SSOResponse } from "./models/Auth";
 import { SSO } from "./models/Auth/Sso";
 import { Actualities, Contacts, Features, ImportantsNews, MapCampus, MapCategories, MapPoints, RestaurantMenu, Restaurants, Schedule, UsefulInformations, Zimbra } from "./models/Data";
-import type { ActualitiesResponse } from "./models/Data/Actualities";
-import type { ContactsBody, ContactsResponse } from "./models/Data/Contacts";
-import type { FeaturesResponse } from "./models/Data/Features";
-import type { ImportantsNewsResponse } from "./models/Data/ImportantsNews";
-import type { MapCampusResponse, MapCategoriesResponse, MapPointsResponse } from "./models/Data/Map";
-import type { RestaurantMenuResponse, RestaurantsResponse } from "./models/Data/Restaurants";
-import type { ScheduleBody, ScheduleResponse } from "./models/Data/Schedules";
-import type { UsefulInformationsResponse } from "./models/Data/Useful";
-import type { ZimbraResponse } from "./models/Data/Zimbra";
-import { CONTACTS, FEATURES, IMPORATANT_NEWS, KEEP_AUTH_WITH_REFRESH_TOKEN, MAIL_CALENDAR, MAP, MAP_CAMPUS, MAP_CATEGORIES, RESTAURANT_MENU, RESTAURANTS, RSS, SCHEDULE, SSO_SERVICE_TOKEN, USEFUL_INFORMATION } from "./utils/Endpoints";
+import type { ActualitiesResponse, ContactsBody, ContactsResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantMenuResponse, RestaurantsResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse } from "./models/Data";
+import { CONTACTS, FEATURES, IMPORATANT_NEWS, MAIL_CALENDAR, MAP, MAP_CAMPUS, MAP_CATEGORIES, RESTAURANT_MENU, RESTAURANTS, RSS, SCHEDULE, SSO_SERVICE_TOKEN, USEFUL_INFORMATION } from "./utils/Endpoints";
 import { UPHFFetcher } from "./utils/Fetcher";
-
-export * from "./Auth";
-
 export class UPHF {
   private tokenExpires: number;
   public constructor(public userData: AuthResponse) {
