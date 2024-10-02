@@ -6,6 +6,8 @@ import { Actualities, Contacts, Features, ImportantsNews, MapCampus, MapCategori
 import type { ActualitiesResponse, ContactsBody, ContactsResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantMenuResponse, RestaurantsResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse } from "./models/Data";
 import { CONTACTS, FEATURES, IMPORATANT_NEWS, MAIL_CALENDAR, MAP, MAP_CAMPUS, MAP_CATEGORIES, RESTAURANT_MENU, RESTAURANTS, RSS, SCHEDULE, SSO_SERVICE_TOKEN, USEFUL_INFORMATION } from "./utils/Endpoints";
 import { UPHFFetcher } from "./utils/Fetcher";
+
+export * from "./Auth";
 export class UPHF {
   private tokenExpires: number;
   public constructor(public userData: AuthResponse) {
