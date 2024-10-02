@@ -1,23 +1,25 @@
 {
   "name": "uphf-api",
   "description": "A simple wrapper to interact with the internal UPHF (Université Polytechnique Haut-de-France) API",
-  "repository": "github:tom-theret/uphf-api",
-  "version": "2.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tom-theret/uphf-api.git"
+  },
+  "version": "2.1.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "require": "./dist/index.js"
     }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "npm install && node ./scripts/build && gen-esm-wrapper dist/index.js dist/index.mjs",
+    "build": "npm install && node ./scripts/build",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
