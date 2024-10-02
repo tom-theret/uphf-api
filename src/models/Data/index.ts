@@ -1,5 +1,5 @@
 import type { ActualitiesResponse } from "./Actualities";
-import type { ContactsResponse } from "./Contacts";
+import type { ContactsBody, ContactsResponse } from "./Contacts";
 import type { FeaturesResponse } from "./Features";
 import type { ImportantsNewsResponse } from "./ImportantsNews";
 import type {
@@ -11,10 +11,9 @@ import type {
   RestaurantsResponse,
   RestaurantMenuResponse,
 } from "./Restaurants";
-import type { ScheduleResponse } from "./Schedules";
+import type { ScheduleBody, ScheduleResponse } from "./Schedules";
 import type { UsefulInformationsResponse } from "./Useful";
 import type { ZimbraResponse } from "./Zimbra";
-
 export class Actualities implements ActualitiesResponse {
   public enclosure: {
     url: string;
@@ -450,3 +449,5 @@ export class Zimbra implements ZimbraResponse {
     }));
   }
 }
+
+export type { ActualitiesResponse, ContactsBody, ContactsResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantsResponse, RestaurantMenuResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse };
