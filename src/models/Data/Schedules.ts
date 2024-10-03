@@ -19,11 +19,11 @@ interface Planning {
   label: string;
   type: string;
   messages: Array<Message>;
-  events: Array<Event>;
+  events: Array<EventResponse>;
   default: boolean;
 }
 
-interface Event {
+export interface EventResponse {
   id: string;
   startDateTime: string;
   endDateTime: string;

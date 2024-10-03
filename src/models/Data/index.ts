@@ -11,7 +11,7 @@ import type {
   RestaurantsResponse,
   RestaurantMenuResponse,
 } from "./Restaurants";
-import type { ScheduleBody, ScheduleResponse } from "./Schedules";
+import type { EventResponse, ScheduleBody, ScheduleResponse } from "./Schedules";
 import type { UsefulInformationsResponse } from "./Useful";
 import type { ZimbraResponse } from "./Zimbra";
 export class Actualities implements ActualitiesResponse {
@@ -450,4 +450,4 @@ export class Zimbra implements ZimbraResponse {
   }
 }
 
-export type { ActualitiesResponse, ContactsBody, ContactsResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantsResponse, RestaurantMenuResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse };
+export type { ActualitiesResponse, ContactsBody, ContactsResponse, EventResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantsResponse, RestaurantMenuResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse };
