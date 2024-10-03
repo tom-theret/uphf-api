@@ -1,7 +1,6 @@
 export interface ContactsBody {
   type: "STAFF" | string;
   value: string;
-  authToken: string;
 }
 
 export interface ContactsResponse {
