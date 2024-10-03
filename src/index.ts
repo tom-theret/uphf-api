@@ -3,11 +3,12 @@ import { authWithRefreshToken } from "./Auth";
 import type { AuthResponse, SSOBody, SSOResponse } from "./models/Auth";
 import { SSO } from "./models/Auth/Sso";
 import { Actualities, Contacts, Features, ImportantsNews, MapCampus, MapCategories, MapPoints, RestaurantMenu, Restaurants, Schedule, UsefulInformations, Zimbra } from "./models/Data";
-import type { ActualitiesResponse, ContactsBody, ContactsResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantMenuResponse, RestaurantsResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse } from "./models/Data";
+import type { ActualitiesResponse, ContactsBody, ContactsResponse, EventResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantMenuResponse, RestaurantsResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse } from "./models/Data";
 import { CONTACTS, FEATURES, IMPORATANT_NEWS, MAIL_CALENDAR, MAP, MAP_CAMPUS, MAP_CATEGORIES, RESTAURANT_MENU, RESTAURANTS, RSS, SCHEDULE, SSO_SERVICE_TOKEN, USEFUL_INFORMATION } from "./utils/Endpoints";
 import { UPHFFetcher } from "./utils/Fetcher";
 
 export * from "./Auth";
+export type { ActualitiesResponse, ContactsBody, ContactsResponse, EventResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantsResponse, RestaurantMenuResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse };
 export class UPHF {
   private tokenExpires: number;
   public constructor(public userData: AuthResponse) {
