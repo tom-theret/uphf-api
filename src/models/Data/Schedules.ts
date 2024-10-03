@@ -1,8 +1,7 @@
 export interface ScheduleBody {
-  authToken: string;
   startDate: string;
   endDate: string;
-  asUser: unknown;
+  asUser?: unknown;
 }
 
 export interface ScheduleResponse {
