@@ -8,7 +8,7 @@ import { CONTACTS, FEATURES, IMPORATANT_NEWS, MAIL_CALENDAR, MAP, MAP_CAMPUS, MA
 import { UPHFFetcher } from "./utils/Fetcher";
 
 export * from "./Auth";
-export type { ActualitiesResponse, ContactsBody, ContactsResponse, EventResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantsResponse, RestaurantMenuResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse };
+export type { ActualitiesResponse, ContactsBody, ContactsResponse, EventResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantsResponse, RestaurantMenuResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse } from "./models/Data";
 export class UPHF {
   private tokenExpires: number;
   public constructor(public userData: AuthResponse) {
