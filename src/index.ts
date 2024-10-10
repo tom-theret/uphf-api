@@ -3,7 +3,7 @@ import { authWithRefreshToken } from "./Auth";
 import type { AuthResponse, SSOBody, SSOResponse } from "./models/Auth";
 import { SSO } from "./models/Auth/Sso";
 import { Actualities, Contacts, Features, ImportantsNews, MapCampus, MapCategories, MapPoints, RestaurantMenu, Restaurants, Schedule, UsefulInformations, Zimbra } from "./models/Data";
-import type { ActualitiesResponse, ContactsBody, ContactsResponse, EventResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantMenuResponse, RestaurantsResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse } from "./models/Data";
+import type { ActualitiesResponse, ContactsBody, ContactsResponse, FeaturesResponse, ImportantsNewsResponse, MapCampusResponse, MapCategoriesResponse, MapPointsResponse, RestaurantMenuResponse, RestaurantsResponse, ScheduleBody, ScheduleResponse, UsefulInformationsResponse, ZimbraResponse } from "./models/Data";
 import { CONTACTS, FEATURES, IMPORATANT_NEWS, MAIL_CALENDAR, MAP, MAP_CAMPUS, MAP_CATEGORIES, RESTAURANT_MENU, RESTAURANTS, RSS, SCHEDULE, SSO_SERVICE_TOKEN, USEFUL_INFORMATION } from "./utils/Endpoints";
 import { UPHFFetcher } from "./utils/Fetcher";
 
@@ -224,10 +224,42 @@ export class UPHF {
     }
     const response = await UPHFFetcher(SSO_SERVICE_TOKEN(), {
       method: "POST",
+      headers: {
+        "credentials": "same-origin", 
+      },
       body: JSON.stringify({authToken: this.userData.authToken, service: service} as SSOBody),
     });
     const raw = (await response.text()) as string;
     const result = new SSO(service, raw);
     return result as SSOResponse;
+  }
+
+  /** Get the profile picture of the user as a base64 string.
+   * This function calls the SSO service to get Sesame visibility page and extracts the profile picture as a base64 string.
+   * @returns The base64 string of the profile picture.
+   */
+  public async getProfilePictureAsBase64(): Promise<string> {
+    if (this.isTokenExpired()) {
+      await this.refreshToken();
+    }
+    const ssoTicket = await this.getSsoTicket("https://sesame.uphf.fr/login/cas");
+    await UPHFFetcher(`${ssoTicket.service}?ticket=${ssoTicket.ticket}`, {
+      method: "GET",
+      headers: {
+        "sec-fetch-mode": "navigate",
+        "sec-fetch-site": "none",
+        "credentials": "same-origin",
+      },
+    });
+    const visible = await UPHFFetcher("https://sesame.uphf.fr/connecte/visibilite.html", {
+      method: "GET",
+      headers: {
+        "credentials": "same-origin", 
+      },
+    });
+    const raw = await visible.text();
+    const regex = /"data:image\/jpeg;base64,(.*?)"/g;
+    const result = raw.match(regex);
+    return result?.[0].slice(1, -1) ?? "";
   }
 }
