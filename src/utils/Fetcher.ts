@@ -1,4 +1,6 @@
 import type { FetcherOptions } from "../models/Utils";
+import makeFetchCookie from 'fetch-cookie';
+const fetchCookie = makeFetchCookie(fetch);
 
 /** Fetcher function to fetch data from the UPHF API.
  * @param url The URL to fetch data from.
@@ -7,7 +9,7 @@ import type { FetcherOptions } from "../models/Utils";
  * @throws If the response status code is not a 2xx status code.
  */
 export const UPHFFetcher = async (url: string, options: FetcherOptions) => {
-  const response = await fetch(url, {
+  const response = await fetchCookie(url, {
     method: options.method,
     headers: {
       ...options.headers,
