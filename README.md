@@ -1,5 +1,7 @@
 # uphf-api
 
+# ⚠️ upht-api -> [esup-multi.js](https://github.com/tom-theret/esup-multi.js) ⚠️
+
 A simple wrapper to interact with the internal UPHF (Université Polytechnique Haut-de-France) API
 
 ![NPM Version](https://img.shields.io/npm/v/uphf-api)
